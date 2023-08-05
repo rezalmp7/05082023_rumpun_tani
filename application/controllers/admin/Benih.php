@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pupuk extends CI_Controller {
+class Benih extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,26 +22,25 @@ class Pupuk extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model("M_admin");
-		
+
         if($this->session->userdata('status') != 'login_admin') {
             redirect(base_url('login'));
         }
 	}
 	public function index()
 	{
-		$data['pupuks'] = $this->M_admin->select_all("pupuk")->result_array();
-
+		$data['benihs'] = $this->M_admin->select_all('benih')->result_array();
         $this->load->view('admin/layout/header');
-		$this->load->view('admin/pupuk/index', $data);
+		$this->load->view('admin/benih/index', $data);
         $this->load->view('admin/layout/footer');
 	}
 	public function create() {
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/pupuk/create');
+		$this->load->view('admin/benih/create');
 		$this->load->view('admin/layout/footer');
 	}
     function upload_foto($nama_file, $nama_form){
-		$config['upload_path']          = './assets/images/pupuk/';
+		$config['upload_path']          = './assets/images/benih/';
 		$config['allowed_types']        = 'jpg|jpeg|png';
 		$config['file_name']            = $nama_file;
 	    $config['overwrite']			= true;
@@ -66,7 +65,7 @@ class Pupuk extends CI_Controller {
 		$post = $this->input->post();
 
 		if ($_FILES['gambar']['size'] != 0) {
-			$nama_gambar = "pupuk-".time();
+			$nama_gambar = "benih-".time();
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
 		} else {
 			$gambar = null;
@@ -84,28 +83,28 @@ class Pupuk extends CI_Controller {
 			'harga' => $harga,
 		);
 
-		$this->M_admin->insert_data('pupuk', $data);
+		$this->M_admin->insert_data('benih', $data);
 
-		redirect(base_url('admin/pupuk'));
+		redirect(base_url('admin/benih'));
 	}
 	public function edit($id) {
-		$data['pupuk'] = $this->M_admin->select_where("pupuk", array('id' => $id))->row_array();
+		$data['benih'] = $this->M_admin->select_where("benih", array('id' => $id))->row_array();
 
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/pupuk/edit', $data);
+		$this->load->view('admin/benih/edit', $data);
 		$this->load->view('admin/layout/footer');
 	}
 	public function update($id) {
 		$post = $this->input->post();
 		
-		$pupuk = $this->M_admin->select_where("pupuk", array('id' => $id))->row_array();
+		$benih = $this->M_admin->select_where("benih", array('id' => $id))->row_array();
 
-        $nama_gambar = "pupuk-".time(); 
+        $nama_gambar = "benih-".time(); 
         if ($_FILES['gambar']['size'] != 0) {
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
-			unlink('./assets/images/pupuk/'.$pupuk['gambar']);
+			unlink('./assets/images/benih/'.$benih['gambar']);
 		} else {
-			$gambar = $pupuk['gambar'];
+			$gambar = $benih['gambar'];
 		}
 
 		$hargaExplode = explode(" ", $post['harga'])[1];
@@ -120,17 +119,17 @@ class Pupuk extends CI_Controller {
 			'deskripsi' => $post['deskripsi'] 
 		);
 
-		$this->M_admin->update_data('pupuk', $set, array('id' => $id));
+		$this->M_admin->update_data('benih', $set, array('id' => $id));
 
-		redirect(base_url('admin/pupuk'));
+		redirect(base_url('admin/benih'));
 	}
 	public function destroy($id) {
-		$bibit = $this->M_admin->select_where('pupuk', array('id' => $id))->row_array();
+		$benih = $this->M_admin->select_where('benih', array('id' => $id))->row_array();
 
-		unlink('./assets/images/pupuk/'.$bibit['gambar']);
+		unlink('./assets/images/benih/'.$benih['gambar']);
 
-		$this->M_admin->delete_data('pupuk', array('id' => $id));
+		$this->M_admin->delete_data('benih', array('id' => $id));
 
-		redirect(base_url('admin/pupuk'));
+		redirect(base_url('admin/benih'));
 	}
 }

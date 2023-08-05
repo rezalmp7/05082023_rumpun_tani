@@ -60,9 +60,17 @@ class Pesanan extends CI_Controller {
         $pesanan = [];
         foreach ($post['id'] as $key => $value) {
             $keranjang = $this->M_admin->select_where('keranjang', array('id' => $post['id'][$key]))->row_array();
+            
+            if($keranjang['type'] == 'benih') {
+                $produk = $this->M_admin->select_where('benih', array('id' => $keranjang['id_produk']))->row();
+            } else {
+                $produk = $this->M_admin->select_where('obat', array('id' => $keranjang['id_produk']))->row();
+            }
+
             $data = array(
                 'id_transaksi' => $transaksi['id'],
                 'id_produk' => $keranjang['id_produk'],
+                'nama_produk' => $produk->nama,
                 'type' => $keranjang['type'],
                 'qty' => $post['qty'][$key],
                 'harga' => $post['harga'][$key],
@@ -85,15 +93,15 @@ class Pesanan extends CI_Controller {
         $pesanan_save = [];
 
         foreach ($keranjang_db as $key => $value) {
-            if($value['type'] == 'bibit') {
-                $produk_db = $this->M_admin->select_where('bibit', array('id' => $value['id_produk']))->row_array();
+            if($value['type'] == 'benih') {
+                $produk_db = $this->M_admin->select_where('benih', array('id' => $value['id_produk']))->row_array();
                 $produk = array(
                     'id' => $produk_db['id'],
-                    'nama' => 'Bibit '.$produk_db['produsen'],
+                    'nama' => $produk_db['nama'],
                     'harga' => $produk_db['harga']
                 );
             } else {
-                $produk_db = $this->M_admin->select_where('pupuk', array('id' => $value['id_produk']))->row_array();
+                $produk_db = $this->M_admin->select_where('obat', array('id' => $value['id_produk']))->row_array();
                 $produk = array(
                     'id' => $produk_db['id'],
                     'nama' => $produk_db['nama'],

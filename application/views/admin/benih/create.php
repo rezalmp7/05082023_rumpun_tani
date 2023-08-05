@@ -4,27 +4,27 @@
                         <div class="page-title-box">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h6 class="page-title">Tambah Pupuk</h6>
+                                    <h6 class="page-title">Tambah benih</h6>
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>admin/dashboard">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>admin/pupuk">Data Pupuk</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>admin/benih">Data Benih</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
-                            <form method="POST" action="<?php echo base_url(); ?>admin/pupuk/store" enctype="multipart/form-data">
+                            <form method="POST" action="<?php echo base_url(); ?>admin/benih/store" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="mb-3">
-                                        <label class="form-label">Gambar Pupuk <small class="text-danger">[ jpg | jpeg | png ]</small></label>
-                                        <input type="file" id="input_gambar_pupuk" name="gambar" class="filestyle" data-buttonname="btn-secondary" onChange='getoutput(this)' placeholder="Upload Gambar Pupuk" required>
-                                        <small class="text-danger" id="alert_input_gambar_pupuk"></small>
+                                        <label class="form-label">Gambar Benih <small class="text-danger">[ jpg | jpeg | png ]</small></label>
+                                        <input type="file" id="input_gambar_benih" name="gambar" class="filestyle" data-buttonname="btn-secondary" onChange='getoutput(this)' placeholder="Upload Gambar benih" required>
+                                        <small class="text-danger" id="alert_input_gambar_benih"></small>
                                     </div>
                                     <div class="mb-3">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
                                         <div class="col-sm-12">
-                                            <input class="form-control" name="nama" type="text" placeholder="PT. Makmur Jaya" required>
+                                            <input class="form-control" name="nama" type="text" placeholder="Benih Jagung" required>
                                         </div>
                                     </div>
                                     <div class="mb-3">
@@ -70,8 +70,8 @@
                         console.log(extension != "jpg" && extension != "jpeg" && extension != "png");
                         if(extension != "jpg" && extension != "jpeg" && extension != "png") {
                             console.log("Hapus Input");
-                            $("#input_gambar_pupuk").val('');
-                            $("#alert_input_gambar_pupuk").text("Gambar Harus berformat jpg | jpeg | png")
+                            $("#input_gambar_benih").val('');
+                            $("#alert_input_gambar_benih").text("Gambar Harus berformat jpg | jpeg | png")
                         }
                     }
 

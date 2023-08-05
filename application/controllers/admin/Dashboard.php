@@ -31,7 +31,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data['countTransaksi'] = $this->M_admin->select_all('transaksi')->num_rows();
 		$data['countUser'] = $this->M_admin->select_where('user', array('level' => 'u'))->num_rows();
-		$data['countProduk'] = $this->M_admin->select_all('bibit')->num_rows() + $this->M_admin->select_all('pupuk')->num_rows();
+		$data['countProduk'] = $this->M_admin->select_all('benih')->num_rows() + $this->M_admin->select_all('obat')->num_rows();
 		$data['totalTransaksi'] = $this->M_admin->select_select('sum(total) as sum_total', 'transaksi')->row_array();
 
         $data['transaksi'] = $this->M_admin->select_all('transaksi')->result_array();

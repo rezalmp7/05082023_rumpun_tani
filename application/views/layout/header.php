@@ -67,10 +67,10 @@
                             <a class="nav-link py-0 px-4 text-white fm-spectral fw-semibold" href="<?php echo base_url(); ?>">Home</a>
                         </li>
                         <li class="nav-item py-0">
-                            <a class="nav-link py-0 px-4 text-white fm-spectral" href="<?php echo base_url(); ?>bibit">Bibit Kepala Sawit</a>
+                            <a class="nav-link py-0 px-4 text-white fm-spectral" href="<?php echo base_url(); ?>benih">Benih</a>
                         </li>
                         <li class="nav-item py-0">
-                            <a class="nav-link py-0 px-4 text-white fm-spectral" href="<?php echo base_url(); ?>pupuk">Pupuk</a>
+                            <a class="nav-link py-0 px-4 text-white fm-spectral" href="<?php echo base_url(); ?>obat">Obat</a>
                         </li>
                         <li class="nav-item py-0">
                             <a class="nav-link py-0 px-4 text-white fm-spectral" href="<?php echo base_url(); ?>tentang">Tentang</a>

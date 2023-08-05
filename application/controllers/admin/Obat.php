@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bibit extends CI_Controller {
+class Obat extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,29 +22,30 @@ class Bibit extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model("M_admin");
-
+		
         if($this->session->userdata('status') != 'login_admin') {
             redirect(base_url('login'));
         }
 	}
 	public function index()
 	{
-		$data['bibits'] = $this->M_admin->select_all('bibit')->result_array();
+		$data['obats'] = $this->M_admin->select_all("obat")->result_array();
+
         $this->load->view('admin/layout/header');
-		$this->load->view('admin/bibit/index', $data);
+		$this->load->view('admin/obat/index', $data);
         $this->load->view('admin/layout/footer');
 	}
 	public function create() {
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/bibit/create');
+		$this->load->view('admin/obat/create');
 		$this->load->view('admin/layout/footer');
 	}
     function upload_foto($nama_file, $nama_form){
-		$config['upload_path']          = './assets/images/bibit/';
-		$config['allowed_types']        = 'jpg|jpeg|png';
+		$config['upload_path']          = './assets/images/obat/';
+		$config['allowed_types']        = "jpg|jpeg|png|png";
 		$config['file_name']            = $nama_file;
 	    $config['overwrite']			= true;
-		$config['max_size']             = 1500;
+		// $config['max_size']             = 1500;
  
 		$this->load->library('upload', $config);
         $this->upload->initialize($config);
@@ -65,7 +66,7 @@ class Bibit extends CI_Controller {
 		$post = $this->input->post();
 
 		if ($_FILES['gambar']['size'] != 0) {
-			$nama_gambar = "bibit-".time();
+			$nama_gambar = "obat-".time();
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
 		} else {
 			$gambar = null;
@@ -75,37 +76,39 @@ class Bibit extends CI_Controller {
 		$harga = preg_replace("/[^0-9]/", "", $hargaExplode);
 
 		$data = array(
-			'produsen' => $post['produsen'],
+			'nama' => $post['nama'],
 			'gambar' => $gambar,
 			'deskripsi' => $post['deskripsi'],
 			'jumlah' => $post['jumlah'],
 			'satuan' => $post['satuan'],
-			'waktu_semai' => date('Ymd', strtotime($post['waktu_semai'])),
 			'harga' => $harga,
 		);
 
-		$this->M_admin->insert_data('bibit', $data);
+		$this->M_admin->insert_data('obat', $data);
 
-		redirect(base_url('admin/bibit'));
+		redirect(base_url('admin/obat'));
 	}
 	public function edit($id) {
-		$data['bibit'] = $this->M_admin->select_where("bibit", array('id' => $id))->row_array();
+		$data['obat'] = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
 
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/bibit/edit', $data);
+		$this->load->view('admin/obat/edit', $data);
 		$this->load->view('admin/layout/footer');
 	}
 	public function update($id) {
 		$post = $this->input->post();
 		
-		$bibit = $this->M_admin->select_where("bibit", array('id' => $id))->row_array();
+		$obat = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
 
-        $nama_gambar = "bibit-".time(); 
+        $nama_gambar = "obat-".time(); 
+		echo "<pre>";
+		print_r($_FILES['gambar']);
+		echo "</pre>";
         if ($_FILES['gambar']['size'] != 0) {
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
-			unlink('./assets/images/bibit/'.$bibit['gambar']);
+			// unlink('./assets/images/obat/'.$obat['gambar']);
 		} else {
-			$gambar = $bibit['gambar'];
+			$gambar = $obat['gambar'];
 		}
 
 		$hargaExplode = explode(" ", $post['harga'])[1];
@@ -113,25 +116,24 @@ class Bibit extends CI_Controller {
 
 		$set = array(
 			'gambar' => $gambar,
-			'produsen' => $post['produsen'],
+			'nama' => $post['nama'],
 			'jumlah' => $post['jumlah'],
 			'satuan' => $post['satuan'],
-			'waktu_semai' => date("Ymd", strtotime($post['waktu_semai'])),
 			'harga' => $harga,
 			'deskripsi' => $post['deskripsi'] 
 		);
 
-		$this->M_admin->update_data('bibit', $set, array('id' => $id));
+		$this->M_admin->update_data('obat', $set, array('id' => $id));
 
-		redirect(base_url('admin/bibit'));
+		redirect(base_url('admin/obat'));
 	}
 	public function destroy($id) {
-		$bibit = $this->M_admin->select_where('bibit', array('id' => $id))->row_array();
+		$bibit = $this->M_admin->select_where('obat', array('id' => $id))->row_array();
 
-		unlink('./assets/images/bibit/'.$bibit['gambar']);
+		unlink('./assets/images/obat/'.$bibit['gambar']);
 
-		$this->M_admin->delete_data('bibit', array('id' => $id));
+		$this->M_admin->delete_data('obat', array('id' => $id));
 
-		redirect(base_url('admin/bibit'));
+		redirect(base_url('admin/obat'));
 	}
 }

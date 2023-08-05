@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Bibit extends CI_Controller {
+class Obat extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,23 +29,23 @@ class Bibit extends CI_Controller {
 
 		if($get != null) {
 			if($get['search'] != null || $get['search'] != '') {
-				$data['bibits'] = $this->M_admin->select_query("SELECT * FROM bibit WHERE produsen LIKE '%".$get['search']."%'")->result_array();
+				$data['obats'] = $this->M_admin->select_query("SELECT * FROM obat WHERE nama LIKE '%".$get['search']."%'")->result_array();
 			} else {
-				$data['bibits'] = $this->M_admin->select_all('bibit')->result_array();
+				$data['obats'] = $this->M_admin->select_all('obat')->result_array();
 			}
 		} else {
-			$data['bibits'] = $this->M_admin->select_all('bibit')->result_array();
+			$data['obats'] = $this->M_admin->select_all('obat')->result_array();
 		}
 
         $this->load->view('layout/header');
-		$this->load->view('bibit', $data);
+		$this->load->view('obat', $data);
         $this->load->view('layout/footer');
 	}
 	public function show($id) {
-		$data['bibit'] = $this->M_admin->select_where("bibit", array('id' => $id))->row_array();
+		$data['obat'] = $this->M_admin->select_where('obat', array('id' => $id))->row_array();
 
 		$this->load->view('layout/header');
-		$this->load->view('bibit_detail', $data);
+		$this->load->view('obat_detail', $data);
 		$this->load->view('layout/footer');
 	}
 }

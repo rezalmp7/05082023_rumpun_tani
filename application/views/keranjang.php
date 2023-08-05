@@ -49,7 +49,7 @@
                                             <tr>
                                                 <td><b class="">Tanggal Pengambilan</b></td>
                                                 <td class="text-dark" id="totalBelanja">
-                                                    <input type="date" class="form-control" name="tgl_pengambilan">
+                                                    <input type="date" class="form-control" name="tgl_pengambilan" required>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pupuk extends CI_Controller {
+class Benih extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,23 +29,23 @@ class Pupuk extends CI_Controller {
 
 		if($get != null) {
 			if($get['search'] != null || $get['search'] != '') {
-				$data['pupuks'] = $this->M_admin->select_query("SELECT * FROM pupuk WHERE nama LIKE '%".$get['search']."%'")->result_array();
+				$data['benihs'] = $this->M_admin->select_query("SELECT * FROM benih WHERE produsen LIKE '%".$get['search']."%'")->result_array();
 			} else {
-				$data['pupuks'] = $this->M_admin->select_all('pupuk')->result_array();
+				$data['benihs'] = $this->M_admin->select_all('benih')->result_array();
 			}
 		} else {
-			$data['pupuks'] = $this->M_admin->select_all('pupuk')->result_array();
+			$data['benihs'] = $this->M_admin->select_all('benih')->result_array();
 		}
 
         $this->load->view('layout/header');
-		$this->load->view('pupuk', $data);
+		$this->load->view('benih', $data);
         $this->load->view('layout/footer');
 	}
 	public function show($id) {
-		$data['pupuk'] = $this->M_admin->select_where('pupuk', array('id' => $id))->row_array();
+		$data['benih'] = $this->M_admin->select_where("benih", array('id' => $id))->row_array();
 
 		$this->load->view('layout/header');
-		$this->load->view('pupuk_detail', $data);
+		$this->load->view('benih_detail', $data);
 		$this->load->view('layout/footer');
 	}
 }

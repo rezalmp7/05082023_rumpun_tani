@@ -25,13 +25,13 @@ class Home extends CI_Controller {
 	}
 	public function index()
 	{
-		$bibit5 = $this->M_admin->select_select_limit_orderBy("*", "bibit", 5, 'created_at DESC')->result_array();
-		$pupuk5 = $this->M_admin->select_select_limit_orderBy("*", "pupuk", 5, 'created_at DESC')->result_array();
+		$benih5 = $this->M_admin->select_select_limit_orderBy("*", "benih", 5, 'created_at DESC')->result_array();
+		$obat5 = $this->M_admin->select_select_limit_orderBy("*", "obat", 5, 'created_at DESC')->result_array();
 		// $pupuk5 = $this->M_admin->select_all_limit("pupuk", 5)->result_array();
 
 		$data = array(
-			'bibits' => $bibit5,
-			'pupuks' => $pupuk5 
+			'benihs' => $benih5,
+			'obats' => $obat5 
 		);
 
         $this->load->view('layout/header');

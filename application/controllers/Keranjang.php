@@ -34,15 +34,15 @@ class Keranjang extends CI_Controller {
         $keranjang_save = [];
 
         foreach ($keranjang_db as $key => $value) {
-            if($value['type'] == 'bibit') {
-                $produk_db = $this->M_admin->select_where('bibit', array('id' => $value['id_produk']))->row_array();
+            if($value['type'] == 'benih') {
+                $produk_db = $this->M_admin->select_where('benih', array('id' => $value['id_produk']))->row_array();
                 $produk = array(
                     'id' => $produk_db['id'],
-                    'nama' => 'Bibit '.$produk_db['produsen'],
+                    'nama' => $produk_db['nama'],
                     'harga' => $produk_db['harga']
                 );
             } else {
-                $produk_db = $this->M_admin->select_where('pupuk', array('id' => $value['id_produk']))->row_array();
+                $produk_db = $this->M_admin->select_where('obat', array('id' => $value['id_produk']))->row_array();
                 $produk = array(
                     'id' => $produk_db['id'],
                     'nama' => $produk_db['nama'],
@@ -65,15 +65,24 @@ class Keranjang extends CI_Controller {
 	}
     public function add() {
         $get = $this->input->get();
+        
+        $count_record_on_produk = $this->db->from('keranjang')->where('id_produk', $get['id'])->where('id_user', $this->session->userdata("id"))->get()->num_rows();
+        $data_produk = $this->db->from('keranjang')->where('id_produk', $get['id'])->where('id_user', $this->session->userdata("id"))->get()->row();
 
-        $data = array(
-            'type' => $get['type'],
-            'id_produk' => $get['id'],
-            'id_user' => $this->session->userdata("id"),
-            'qty' => 1
-        );
-
-        $this->M_admin->insert_data('keranjang', $data);
+        if($count_record_on_produk > 0) {
+            $data = array(
+                'qty' => $data_produk->qty+1
+            );
+            $this->M_admin->update_data('keranjang', $data, array('id' => $data_produk->id));
+        } else {
+            $data = array(
+                'type' => $get['type'],
+                'id_produk' => $get['id'],
+                'id_user' => $this->session->userdata("id"),
+                'qty' => 1
+            );
+            $this->M_admin->insert_data('keranjang', $data);
+        }
 
         redirect(base_url('keranjang'));
     }

@@ -119,15 +119,15 @@
                             </li>
                             <li class="menu-title">Produk</li>
                             <li>
-                                <a href="<?php echo base_url(); ?>admin/bibit" class=" waves-effect">
+                                <a href="<?php echo base_url(); ?>admin/benih" class=" waves-effect">
                                     <i class="ti-archive"></i>
-                                    <span>Produk Bibit Sawit</span>
+                                    <span>Produk Benih</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo base_url(); ?>admin/pupuk" class=" waves-effect">
+                                <a href="<?php echo base_url(); ?>admin/obat" class=" waves-effect">
                                     <i class="ti-archive"></i>
-                                    <span>Produk Pupuk</span>
+                                    <span>Produk Obat</span>
                                 </a>
                             </li>
                             <li class="menu-title">Transaksi</li>

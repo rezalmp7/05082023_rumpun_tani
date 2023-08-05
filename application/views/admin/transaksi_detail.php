@@ -101,7 +101,7 @@
                                                                     foreach ($pesanan as $key => $value) {
                                                                     ?>
                                                                     <tr>
-                                                                        <td class="namaPerItem"><?php echo $value['produk']['nama']; ?></td>
+                                                                        <td class="namaPerItem"><?php echo $value['nama_produk']; ?></td>
                                                                         <td class="hargaPerItem">Rp. <?php echo number_format($value['harga']); ?></td>
                                                                         <td><?php echo $value['qty']; ?></td>
                                                                         <td class="totalPerItem"><?php echo 'Rp. '.number_format($value['harga']*$value['qty']); ?></td>
