@@ -22,6 +22,10 @@ class User extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model("M_admin");
+		
+        if($this->session->userdata('status') != 'login_admin') {
+            redirect(base_url('login'));
+        }
 	}
 	public function index()
 	{

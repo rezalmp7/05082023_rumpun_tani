@@ -22,6 +22,10 @@ class Keranjang extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model("M_admin");
+
+        if($this->session->userdata('status') != 'login_user') {
+            redirect(base_url('login'));
+        }
 	}
 	public function index()
 	{
