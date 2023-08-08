@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Obat extends CI_Controller {
+class Pupuk extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,15 +29,15 @@ class Obat extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['obats'] = $this->db->from("obat")->where('type', 'obat')->get()->result_array();
+		$data['pupuks'] = $this->db->from("obat")->where('type', 'pupuk')->get()->result_array();
 
         $this->load->view('admin/layout/header');
-		$this->load->view('admin/obat/index', $data);
+		$this->load->view('admin/pupuk/index', $data);
         $this->load->view('admin/layout/footer');
 	}
 	public function create() {
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/obat/create');
+		$this->load->view('admin/pupuk/create');
 		$this->load->view('admin/layout/footer');
 	}
     function upload_foto($nama_file, $nama_form){
@@ -66,7 +66,7 @@ class Obat extends CI_Controller {
 		$post = $this->input->post();
 
 		if ($_FILES['gambar']['size'] != 0) {
-			$nama_gambar = "obat-".time();
+			$nama_gambar = "pupuk-".time();
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
 		} else {
 			$gambar = null;
@@ -77,7 +77,7 @@ class Obat extends CI_Controller {
 
 		$data = array(
 			'nama' => $post['nama'],
-			'type' => 'obat',
+			'type' => 'pupuk',
 			'gambar' => $gambar,
 			'deskripsi' => $post['deskripsi'],
 			'jumlah' => $post['jumlah'],
@@ -87,29 +87,29 @@ class Obat extends CI_Controller {
 
 		$this->M_admin->insert_data('obat', $data);
 
-		redirect(base_url('admin/obat'));
+		redirect(base_url('admin/pupuk'));
 	}
 	public function edit($id) {
-		$data['obat'] = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
+		$data['pupuk'] = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
 
 		$this->load->view('admin/layout/header');
-		$this->load->view('admin/obat/edit', $data);
+		$this->load->view('admin/pupuk/edit', $data);
 		$this->load->view('admin/layout/footer');
 	}
 	public function update($id) {
 		$post = $this->input->post();
 		
-		$obat = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
+		$pupuk = $this->M_admin->select_where("obat", array('id' => $id))->row_array();
 
-        $nama_gambar = "obat-".time(); 
+        $nama_gambar = "pupuk-".time(); 
 		echo "<pre>";
 		print_r($_FILES['gambar']);
 		echo "</pre>";
         if ($_FILES['gambar']['size'] != 0) {
 			$gambar = $this->upload_foto($nama_gambar, 'gambar');
-			// unlink('./assets/images/obat/'.$obat['gambar']);
+			// unlink('./assets/images/pupuk/'.$pupuk['gambar']);
 		} else {
-			$gambar = $obat['gambar'];
+			$gambar = $pupuk['gambar'];
 		}
 
 		$hargaExplode = explode(" ", $post['harga'])[1];
@@ -126,7 +126,7 @@ class Obat extends CI_Controller {
 
 		$this->M_admin->update_data('obat', $set, array('id' => $id));
 
-		redirect(base_url('admin/obat'));
+		redirect(base_url('admin/pupuk'));
 	}
 	public function destroy($id) {
 		$bibit = $this->M_admin->select_where('obat', array('id' => $id))->row_array();
@@ -135,6 +135,6 @@ class Obat extends CI_Controller {
 
 		$this->M_admin->delete_data('obat', array('id' => $id));
 
-		redirect(base_url('admin/obat'));
+		redirect(base_url('admin/pupuk'));
 	}
 }

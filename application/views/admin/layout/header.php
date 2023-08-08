@@ -4,7 +4,7 @@
     <head>
     
         <meta charset="utf-8">
-        <title>Panel Admin | Market Dinas Pertanian</title>
+        <title>Panel Admin | Toko Rumpun Tani</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Market Dinas Pertanian" name="description">
         <meta content="sda" name="author">
@@ -128,6 +128,12 @@
                                 <a href="<?php echo base_url(); ?>admin/obat" class=" waves-effect">
                                     <i class="ti-archive"></i>
                                     <span>Produk Obat</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url(); ?>admin/pupuk" class=" waves-effect">
+                                    <i class="ti-archive"></i>
+                                    <span>Produk Pupuk</span>
                                 </a>
                             </li>
                             <li class="menu-title">Transaksi</li>

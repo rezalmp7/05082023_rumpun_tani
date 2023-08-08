@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Obat extends CI_Controller {
+class Pupuk extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,16 +29,16 @@ class Obat extends CI_Controller {
 
 		if($get != null) {
 			if($get['search'] != null || $get['search'] != '') {
-				$data['obats'] = $this->M_admin->select_query("SELECT * FROM obat WHERE nama LIKE '%".$get['search']."%' AND type = obat")->result_array();
+				$data['pupuks'] = $this->M_admin->select_query("SELECT * FROM obat WHERE nama LIKE '%".$get['search']."%' AND type='pupuk'")->result_array();
 			} else {
-				$data['obats'] = $this->db->from('obat')->where("type", "obat")->result_array();
+				$data['pupuks'] = $this->db->from('obat')->where("type", "pupuk")->get()->result_array();
 			}
 		} else {
-			$data['obats'] = $this->M_admin->select_all('obat')->result_array();
+			$data['pupuks'] = $this->db->from('obat')->where("type", "pupuk")->get()->result_array();
 		}
 
         $this->load->view('layout/header');
-		$this->load->view('obat', $data);
+		$this->load->view('pupuk', $data);
         $this->load->view('layout/footer');
 	}
 	public function show($id) {
