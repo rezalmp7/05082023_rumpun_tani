@@ -3,7 +3,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                © <script>document.write(new Date().getFullYear())</script> Market Dinas Pertanian<span class="d-none d-sm-inline-block"> - by Dinas Pertanian.</span>
+                                © <script>document.write(new Date().getFullYear())</script> Toko Rumpun Tani<span class="d-none d-sm-inline-block">.</span>
                             </div>
                         </div>
                     </div>

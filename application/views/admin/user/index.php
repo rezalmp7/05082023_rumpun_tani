@@ -45,7 +45,7 @@
                                             <td>
                                                 <!-- <a href="<?php echo base_url(); ?>admin/user/show/<?php echo $value['id']; ?>" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fas fa-info"></i> Detail</a> -->
                                                 <a href="<?php echo base_url(); ?>admin/user/edit/<?php echo $value['id']; ?>" class="btn btn-sm btn-warning waves-effect waves-light"><i class="fas fa-edit"></i> Edit</a>
-                                                <a href="<?php echo base_url(); ?>admin/user/destroy/<?php echo $value['id']; ?>" class="btn btn-sm btn-danger waves-effect waves-light"><i class="fas fa-trash"></i> Hapus</a>
+                                                <!-- <a href="<?php echo base_url(); ?>admin/user/destroy/<?php echo $value['id']; ?>" class="btn btn-sm btn-danger waves-effect waves-light"><i class="fas fa-trash"></i> Hapus</a> -->
                                             </td>
                                         </tr>
                                         <?php

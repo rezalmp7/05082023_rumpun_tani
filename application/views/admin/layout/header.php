@@ -137,12 +137,12 @@
                                 </a>
                             </li>
                             <li class="menu-title">Transaksi</li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?php echo base_url(); ?>admin/transaksi" class=" waves-effect">
                                     <i class="ti-calendar"></i>
                                     <span>Transaksi</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="<?php echo base_url(); ?>admin/laporan" class=" waves-effect">
                                     <i class="ti-calendar"></i>

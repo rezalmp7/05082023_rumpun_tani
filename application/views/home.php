@@ -5,7 +5,7 @@
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
                             aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
@@ -16,13 +16,13 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
                             aria-label="Slide 6"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"
-                            aria-label="Slide 7"></button>
+                            aria-label="Slide 7"></button> -->
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/carousel-1.jpeg);" />
+                            <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/COVER.png);" />
                         </div>
-                        <div class="carousel-item">
+                        <!-- <div class="carousel-item">
                             <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/carousel-2.jpg);" />
                         </div>
                         <div class="carousel-item">
@@ -39,9 +39,9 @@
                         </div>
                         <div class="carousel-item">
                             <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/carousel-7.jpg);" />
-                        </div>
+                        </div> -->
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
@@ -50,7 +50,7 @@
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
             <div class="col-12 m-0 p-5">

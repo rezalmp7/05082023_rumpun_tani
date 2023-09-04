@@ -6,7 +6,7 @@
                     <div class="col-6 m-0 p-2 logo-dinas-pertanian">
                         <div class="col-12 m-0 p-0 row" style="height: 40px">
                             <img class="m-0 p-0" style="height: 40px; width: 40px" src="<?php echo base_url(); ?>assets/images/logo_dinas_pertanian.png">
-                            <h1 class="col fs-4 d-inline-block h-100 align-middle m-0 py-2 ps-3 fm-spectral">Market Dinas Pertanian</h1>
+                            <h1 class="col fs-4 d-inline-block h-100 align-middle m-0 py-2 ps-3 fm-spectral">Toko Rumpun Tani</h1>
                         </div>
                     </div>
                     <div class="col-4 m-0 p-2 kontak-footer">
@@ -15,12 +15,14 @@
                             DIREKTORAT PERBENIHAN PERKEBUNAN
                         </p>
                         <p class="fm-inter fw-light fw-7">
-                            Jln. Harsono RM No. 03 Gedung C, Lantai 4 Kanpus Kementerian Pertanian Jakarta Selatan, 12550 - Indonesia
+                            Desa sengon wetan rt 5 rw 2, Kecamatan Kradenan, Kabupaten Grobogan, Jawa Tengah
+                            <br>
+                            Whatsapp +62 823-5249-8968 
                         </p>
                         <ul class="m-0 p-0">
-                            <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="material-symbols:phone-android-outline"></span> Telepon: (021) 7815681</a></li>
-                            <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="material-symbols:fax-outline-rounded"></span> Fax: (021) 7815681</a></li>
-                            <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="ic:outline-email"></span> Email: perbenihanbun@gmail.com</a></li>
+                            <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="material-symbols:phone-android-outline"></span> Telepon: +62 823-5249-8968 </a></li>
+                            <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="material-symbols:fax-outline-rounded"></span> Whatsapp: +62 823-5249-8968 </a></li>
+                            <!-- <li class="list-group-item py-1"><a href="#" class="text-decoration-none text-black"><span class="iconify" data-icon="ic:outline-email"></span> Email: perbenihanbun@gmail.com</a></li> -->
                         </ul>
                     </div>
                 </div>

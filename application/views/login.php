@@ -71,7 +71,7 @@
                                 </form>
                                 <div class="mt-5 pt-4 text-center">
                                     <p>Belum punya akun ? <a href="<?php echo base_url(); ?>register" class="fw-medium text-primary"> Daftar Sekarang </a> </p>
-                                    <p>© <script>document.write(new Date().getFullYear())</script> Developer. Create by Informatika UPGRIS</p>
+                                    <p>© <script>document.write(new Date().getFullYear())</script> Developer. Create by Toko Rumpun Tani</p>
                                 </div>
                             </div>
                         </div>
