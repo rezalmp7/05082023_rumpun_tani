@@ -71,7 +71,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/admin/assets/images/users/user-4.jpg"
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/logo_dinas_pertanian.png"
                                     alt="Header Avatar"> <span class="m-0 ms-2 p-0"><?php echo $this->session->userdata('nama'); ?></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">

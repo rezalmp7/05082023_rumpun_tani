@@ -20,7 +20,7 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/COVER.png);" />
+                            <img class="col-12 m-0 p-0 background-corousel" style="height: 1000px; background-image: url(<?php echo base_url(); ?>assets/images/dinas/COVER.png);" />
                         </div>
                         <!-- <div class="carousel-item">
                             <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/carousel-2.jpg);" />

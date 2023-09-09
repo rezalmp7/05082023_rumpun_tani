@@ -5,7 +5,7 @@
                     <div class="col-12 mb-3 p-0 shadow rounded">
                         <div class="col-12 m-0 p-5">
                             <h3 class="fm-inter fw-semibold fs-4">Tentang</h3>
-                            <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/carousel-1.jpeg);" />
+                            <img class="col-12 m-0 p-0 background-corousel vh-100" style="background-image: url(<?php echo base_url(); ?>assets/images/dinas/COVER.png);" />
                             <p class="fm-inter fs-6">
                                 <span class="fw-semibold fs-4">Dinas pertanian</span> adalah sebuah lembaga pemerintah yang bertanggung jawab dalam pengembangan sektor pertanian di suatu
                                 daerah. Dalam menjalankan tugasnya, dinas pertanian memiliki berbagai program dan kegiatan seperti penyuluhan pertanian,
