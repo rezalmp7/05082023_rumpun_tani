@@ -53,85 +53,46 @@
                     </button> -->
                 </div>
             </div>
-            <div class="col-12 m-0 p-5">
-                <div class="col-12 m-0 p-5">
-                    <h3 class="fw-bold fs-4">Benih</h3>
-                    <div class="col-12 m-0 mt-5 p-0">
-                        <?php
-                        foreach ($benihs as $key => $value) {
-                        ?>
-                        <div class="col-12 mb-3 p-0 shadow rounded">
-                            <div class="col-12 m-0 p-0 row">
-                                <div class="col-auto p-3">
-                                    <div class="col-12 m-0 rounded background-corousel" style="background-image: url(<?php echo base_url(); ?>assets/images/benih/<?php echo $value['gambar']; ?>); height: 150px; width: 250px;"></div>
-                                </div>
-                                <div class="col m-0 p-3 fs-7 fm-inter">
-                                    <table>
-                                        <tr>
-                                            <td class="fw-semibold pe-5 py-1">Nama Benih</td>
-                                            <td>: <?php echo $value['nama']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-semibold pe-5 py-1">Jumlah Benih</td>
-                                            <td>: <?php echo number_format($value['jumlah']).' '.$value['satuan']; ?></td>
-                                        </tr>
-                                    </table>
-                                    <div class="col-12 row m-0 p-0">
-                                        <div class="col-6 p-2">
-                                            <a href="<?php echo base_url(); ?>keranjang/add?type=benih&id=<?php echo $value['id']; ?>" class="btn btn-success col-12 d-block mt-4">Simpan Ke Keranjang</a>
-                                        </div>
-                                        <div class="col-6 p-2">
-                                            <a href="<?php echo base_url(); ?>benih/show/<?php echo $value['id']; ?>" class="btn btn-outline-primary col-12 d-block mt-4">Detail</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                <div class="col-12 m-0 p-5">
-                    <h3 class="fw-bold fs-4">Obat</h3>
-                    <div class="col-12 m-0 mt-5 p-0">
-                        <?php
-                        foreach ($obats as $key => $value) {
-                        ?>
-                        <div class="col-12 mb-3 p-0 shadow rounded">
-                            <div class="col-12 m-0 p-0 row">
-                                <div class="col-auto p-3">
-                                    <div class="col-12 m-0 rounded background-corousel"
-                                        style="background-image: url(<?php echo base_url(); ?>assets/images/obat/<?php echo $value['gambar']; ?>); height: 150px; width: 250px;">
-                                    </div>
-                                </div>
-                                <div class="col m-0 p-3 fs-7 fm-inter">
-                                    <table>
-                                        <tr>
-                                            <td class="fw-semibold pe-5 py-1">Nama obat</td>
-                                            <td>: <?php echo $value['nama']; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-semibold pe-5 py-1">Jumlah</td>
-                                            <td>: <?php echo number_format($value['jumlah']).' '.$value['satuan']; ?></td>
-                                        </tr>
-                                    </table>
-                                    <div class="col-12 row m-0 p-0">
-                                        <div class="col-6 p-2">
-                                            <a href="<?php echo base_url(); ?>keranjang/add?type=obat&id=<?php echo $value['id']; ?>" class="btn btn-success col-12 d-block mt-4">Simpan Ke Keranjang</a>
-                                        </div>
-                                        <div class="col-6 p-2">
-                                            <a href="<?php echo base_url(); ?>obat/show/<?php echo $value['id']; ?>" class="btn btn-outline-primary col-12 d-block mt-4">Detail</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-            </div>
+
+			<div class="col-12">
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title mb-4">Total Transaksi Per Bulan</h4>
+
+						<!-- end row -->
+						<canvas id="myChart"></canvas>
+
+					</div>
+				</div>
+			</div> <!-- end col -->
         </div>
         <!-- END CONTENT -->
+		<script>
+		let bulanChart = <?php echo $cart['bulan']; ?>;
+		let valueChart = <?php echo $cart['value']; ?>;
+
+		console.log(bulanChart, valueChart);
+
+		const ctx = document.getElementById('myChart');
+
+		new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: bulanChart,
+				datasets: [{
+					label: 'Total Transaksi',
+					data: valueChart,
+					borderWidth: 1,
+					tension: 0.3
+				}]
+			},
+			options: {
+			scales: {
+				y: {
+				beginAtZero: true
+				}
+			}
+			}
+		});
+		</script>

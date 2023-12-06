@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 
     <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+	<!--Chart JS-->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
